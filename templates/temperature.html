@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	  <title>Temperature App</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<!-- <h1>Enter your City</h1> -->
+{% if form %}
+<h1>Enter your City</h1>
+	<form method="post" action="/results/">
+		{% csrf_token %}
+	    {{ form }}
+	    <button type="submit">Check</button>
+	</form>
+{% endif %}
+
+
+{% if temp %}
+	<h1>The temperature of the {{ city }} is :  {{ temp }}</h1>
+	<a href="/"><button type="submit">Back</button></a>
+{% endif %}
+
+</body>
+</html>
